@@ -1,4 +1,4 @@
-# Loansome Car Buyer
+# UVa 10114 Loansome Car Buyer
 
 - 영어가 어려운 문제...
 - 차의 초기 가치는 down payment + 빌린돈

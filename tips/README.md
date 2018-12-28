@@ -33,6 +33,22 @@
 - 대체로 memset함수는 특정 범위에 있는 연속된 메모리에 값을 지정하고 싶을 때 사용하는데 for문보다 더 빠른 속도가 나올수가 있다.
 - 여기서 나올수가 있다라고 표현한 이유는 컴파일러 그리고 컴퓨터 아키텍처에 따라서 다르기 때문이다. 컴파일러가 자동으로 최적화를 해줌으로써 for loop을 통해서 초기화 하는것과 memset을 통해 초기화를 하는것의 어셈블리 코드가 같게 나오는 경우가 있다.
 
+### 0으로 초기화와 -1으로 초기화 둘다 가능하다
+
+- [참고링크](https://stackoverflow.com/questions/7202411/why-does-memsetarr-1-sizeofarr-sizeofint-not-clear-an-integer-array-t)
+
+```C
+int arr[10];
+
+// int형 0으로 초기화 가능
+// if you set all the bytes to 0, the value will be zero
+memset(arr, 0, sizeof(arr));
+
+// int형 -1으로 초기화 가능
+// -1 is 0xff (=255) in int8_t and 0xffffffff in int32_t
+memset(arr, -1, sizeof(arr));
+```
+
 ## 알고리즘 수행 시간 어림하기
 
 - 요즘의 컴퓨터는 대략 1억(10^8)번의 연산까지는 몇 초 안에 해낸다. 이 사실에 입각하여 알고리즘이 시간내에 작동할지를 판단해보자.

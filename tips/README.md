@@ -54,3 +54,35 @@ memset(arr, -1, sizeof(arr));
 - 요즘의 컴퓨터는 대략 1억(10^8)번의 연산까지는 몇 초 안에 해낸다. 이 사실에 입각하여 알고리즘이 시간내에 작동할지를 판단해보자.
 - 예를들어 입력 n의 최대크기가 10^5이고 현재 만든 알고리즘의 시간 복잡도가 O(n^2)이라면, 10^10번의 연산인 필요하고 이것은 알고리즘이 돌아가는데 수백초의 시간이 걸린다는 것이다.
 - 시간 복잡도 만큼이나 문제에 나온 입력 범위가 중요하다. 입력범위가 매우 작다면 안좋은 시간복잡도를 가지는 알고리즘도 시간 안에 문제를 푸는 알고리즘일 수 있다.
+
+## 입력의 끝이 EOF인 경우
+
+```C
+while(scanf("%d %d", &x, &y) == 2)
+{
+    ...
+}
+
+while(scanf("%d %d", &x, &y) != EOF)
+{
+    ...
+}
+```
+
+- scanf()는 정상적으로 입력받은 개수를 반환함을 이용
+- EOF에 도달하면 EOF를 반환함을 이용
+
+## binary search
+
+```C++
+int arr[] = {1, 4, 7, 12, 23};
+vector<int> v(arr, arr + 5);
+
+cout << *(lower_bound(v.begin(), v.end(), 10)) << endl; // 12
+cout << *(upper_bound(v.begin(), v.end(), 10)) << endl; // 12
+
+cout << *(lower_bound(v.begin(), v.end(), 7)) << endl; // 7
+cout << *(upper_bound(v.begin(), v.end(), 7)) << endl; // 12
+```
+
+- binary search는 vector나 array처럼 임의의 원소에 O(1)시간에 접근할 수 있는 자료구조에서 사용할 경우 O(log(n))의 시간복잡도를 가진다.

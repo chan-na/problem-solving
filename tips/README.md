@@ -57,6 +57,8 @@ memset(arr, -1, sizeof(arr));
 
 ## 입력의 끝이 EOF인 경우
 
+### scanf() 사용
+
 ```C
 while(scanf("%d %d", &x, &y) == 2)
 {
@@ -71,6 +73,18 @@ while(scanf("%d %d", &x, &y) != EOF)
 
 - scanf()는 정상적으로 입력받은 개수를 반환함을 이용
 - EOF에 도달하면 EOF를 반환함을 이용
+
+### fgets() 사용
+
+```C
+while(fgets(buffer, length, stdin) != NULL)
+{
+    ...
+}
+```
+
+- 개행 문자는 fgets() 로 하여금 입력을 끝나게 하지만 이 문자 역시 str 에 저장한다. NULL 문자는 자동적으로 마지막으로 입력받은 문자 뒤에 붙는다.
+- fgets() 함수는 성공적으로 읽어들였다면 함수는 str 을 리턴한다. 만일 파일 끝에 도달하였는데 아무런 문자도 읽어들이지 않았다면 str 의 내용은 변하지 않고 그 대신 null 포인터가 리턴된다.
 
 ## binary search
 

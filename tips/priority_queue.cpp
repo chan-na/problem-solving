@@ -54,5 +54,12 @@ int main(void)
         std::cout << "name: " << data.name << "  ID: " << data.studentID << std::endl;
     }
 
+    /* 출력결과
+        name: A  ID: 1
+        name: A  ID: 2
+        name: B  ID: 3
+        name: C  ID: 4
+    */
+
     return 0;
 }
